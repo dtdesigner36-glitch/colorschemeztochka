@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sharpen Colors</title>
+<style>
+  .sharpen-wrapper {
+    font-family: Arial, sans-serif;
+    max-width: 1000px;
+    margin: 20px auto;
+    color: #eee;
+  }
+
+  body {
+    background: #101018;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid #444;
+    background: #1a1a25;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .tab-btn.active {
+    background: #f6a200;
+    color: #111;
+    border-color: #f6a200;
+    font-weight: bold;
+  }
+
+  .tab-pane {
+    display: none;
+  }
+
+  .tab-pane.active {
+    display: block;
+  }
+
+  table.sharpen-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  table.sharpen-table th,
+  table.sharpen-table td {
+    border: 1px solid #333;
+    padding: 6px 8px;
+    text-align: left;
+  }
+
+  table.sharpen-table th {
+    background: #181824;
+  }
+
+  table.sharpen-table tr:nth-child(even) {
+    background: #141420;
+  }
+
+  table.sharpen-table tr:nth-child(odd) {
+    background: #101018;
+  }
+
+  .hex-copy {
+    cursor: pointer;
+    font-family: "Consolas", "Courier New", monospace;
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid #444;
+    background: #1e1e2a;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .hex-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    border: 1px solid #000;
+    box-shadow: 0 0 4px rgba(0,0,0,0.6);
+  }
+
+  .hex-copy:hover {
+    border-color: #f6a200;
+  }
+
+  .hex-copy.copied {
+    border-color: #4caf50;
+  }
+
+  .hex-copy.copied::after {
+    content: "copied";
+    margin-left: 6px;
+    font-size: 11px;
+    color: #4caf50;
+    text-transform: lowercase;
+  }
+</style>
+</head>
+<body>
+<div class="sharpen-wrapper">
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="kritovik">Kritovik</button>
+    <button class="tab-btn" data-tab="lovkach">Lovkach</button>
+    <button class="tab-btn" data-tab="tank">Tank</button>
+    <button class="tab-btn" data-tab="lekar">Lekar</button>
+    <button class="tab-btn" data-tab="yadovik">Yadovik</button>
+  </div>
+
+  <!-- Kritovik -->
+  <div class="tab-pane active" id="kritovik">
+    <table class="sharpen-table">
+      <thead>
+        <tr>
+          <th>Level</th>
+          <th>Glow HEX</th>
+          <th>Overlay HEX</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>+1</td><td><span class="hex-copy" data-hex="#ffdddd"><span class="hex-swatch" style="background:#ffdddd"></span>#ffdddd</span></td><td><span class="hex-copy" data-hex="#ffbfbf"><span class="hex-swatch" style="background:#ffbfbf"></span>#ffbfbf</span></td><td>Blednoe aloe poslevkusie udara</td></tr>
+        <tr><td>+2</td><td><span class="hex-copy" data-hex="#ffc4c4"><span class="hex-swatch" style="background:#ffc4c4"></span>#ffc4c4</span></td><td><span class="hex-copy" data-hex="#ffa3a3"><span class="hex-swatch" style="background:#ffa3a3"></span>#ffa3a3</span></td><td>Tihoye rozovatoye plamya</td></tr>
+        <tr><td>+3</td><td><span class="hex-copy" data-hex="#ffaaaa"><span class="hex-swatch" style="background:#ffaaaa"></span>#ffaaaa</span></td><td><span class="hex-copy" data-hex="#ff8a8a"><span class="hex-swatch" style="background:#ff8a8a"></span>#ff8a8a</span></td><td>Razgorayushchiysya rubinoviy zhar</td></tr>
+        <tr><td>+4</td><td><span class="hex-copy" data-hex="#ff9090"><span class="hex-swatch" style="background:#ff9090"></span>#ff9090</span></td><td><span class="hex-copy" data-hex="#ff7070"><span class="hex-swatch" style="background:#ff7070"></span>#ff7070</span></td><td>Zhgutchiy aliy nakal</td></tr>
+        <tr><td>+5</td><td><span class="hex-copy" data-hex="#ff7878"><span class="hex-swatch" style="background:#ff7878"></span>#ff7878</span></td><td><span class="hex-copy" data-hex="#ff5858"><span class="hex-swatch" style="background:#ff5858"></span>#ff5858</span></td><td>Plamya gneva v razgare</td></tr>
+        <tr><td>+6</td><td><span class="hex-copy" data-hex="#ff5f5f"><span class="hex-swatch" style="background:#ff5f5f"></span>#ff5f5f</span></td><td><span class="hex-copy" data-hex="#ff3f3f"><span class="hex-swatch" style="background:#ff3f3f"></span>#ff3f3f</span></td><td>Krovavo-aloye siyaniye klinika</td></tr>
+        <tr><td>+7</td><td><span class="hex-copy" data-hex="#ff4545"><span class="hex-swatch" style="background:#ff4545"></span>#ff4545</span></td><td><span class="hex-copy" data-hex="#ff2525"><span class="hex-swatch" style="background:#ff2525"></span>#ff2525</span></td><td>Ognennyy klinok yarosti</td></tr>
+        <tr><td>+8</td><td><span class="hex-copy" data-hex="#ff2c2c"><span class="hex-swatch" style="background:#ff2c2c"></span>#ff2c2c</span></td><td><span class="hex-copy" data-hex="#ff1010"><span class="hex-swatch" style="background:#ff1010"></span>#ff1010</span></td><td>Raskalyonnyy do bagrovogo stal</td></tr>
+        <tr><td>+9</td><td><span class="hex-copy" data-hex="#ff1414"><span class="hex-swatch" style="background:#ff1414"></span>#ff1414</span></td><td><span class="hex-copy" data-hex="#e80000"><span class="hex-swatch" style="background:#e80000"></span>#e80000</span></td><td>Neistovstvo krovi i ognya</td></tr>
+        <tr><td>+10</td><td><span class="hex-copy" data-hex="#ff0000"><span class="hex-swatch" style="background:#ff0000"></span>#ff0000</span></td><td><span class="hex-copy" data-hex="#d00000"><span class="hex-swatch" style="background:#d00000"></span>#d00000</span></td><td>Chistiy plotniy krovaviy ogon</td></tr>
+        <tr><td>+11</td><td><span class="hex-copy" data-hex="#ff0040"><span class="hex-swatch" style="background:#ff0040"></span>#ff0040</span></td><td><span class="hex-copy" data-hex="#d00040"><span class="hex-swatch" style="background:#d00040"></span>#d00040</span></td><td>Aloye plamya s ottenkam yarkoy magii</td></tr>
+        <tr><td>+12</td><td><span class="hex-copy" data-hex="#ff00a0"><span class="hex-swatch" style="background:#ff00a0"></span>#ff00a0</span></td><td><span class="hex-copy" data-hex="#d00080"><span class="hex-swatch" style="background:#d00080"></span>#d00080</span></td><td>Neonovoye bagryano-rozovoye plamya krita</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Lovkach -->
+  <div class="tab-pane" id="lovkach">
+    <table class="sharpen-table">
+      <thead>
+        <tr>
+          <th>Level</th>
+          <th>Glow HEX</th>
+          <th>Overlay HEX</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>+1</td><td><span class="hex-copy" data-hex="#e0f8ff"><span class="hex-swatch" style="background:#e0f8ff"></span>#e0f8ff</span></td><td><span class="hex-copy" data-hex="#c8f0ff"><span class="hex-swatch" style="background:#c8f0ff"></span>#c8f0ff</span></td><td>Edva zametniy holodok vetra</td></tr>
+        <tr><td>+2</td><td><span class="hex-copy" data-hex="#c4f0ff"><span class="hex-swatch" style="background:#c4f0ff"></span>#c4f0ff</span></td><td><span class="hex-copy" data-hex="#aee8ff"><span class="hex-swatch" style="background:#aee8ff"></span>#aee8ff</span></td><td>Myagkiy goluboy shleyf dvizheniya</td></tr>
+        <tr><td>+3</td><td><span class="hex-copy" data-hex="#a8e6ff"><span class="hex-swatch" style="background:#a8e6ff"></span>#a8e6ff</span></td><td><span class="hex-copy" data-hex="#92dcff"><span class="hex-swatch" style="background:#92dcff"></span>#92dcff</span></td><td>Legkiy vozdushniy vzplesk</td></tr>
+        <tr><td>+4</td><td><span class="hex-copy" data-hex="#8cddff"><span class="hex-swatch" style="background:#8cddff"></span>#8cddff</span></td><td><span class="hex-copy" data-hex="#75d0ff"><span class="hex-swatch" style="background:#75d0ff"></span>#75d0ff</span></td><td>Goluboye siyaniye stremitelnogo udara</td></tr>
+        <tr><td>+5</td><td><span class="hex-copy" data-hex="#70d3ff"><span class="hex-swatch" style="background:#70d3ff"></span>#70d3ff</span></td><td><span class="hex-copy" data-hex="#59c4ff"><span class="hex-swatch" style="background:#59c4ff"></span>#59c4ff</span></td><td>Biryuzoviy sled ukloneniya</td></tr>
+        <tr><td>+6</td><td><span class="hex-copy" data-hex="#54c9ff"><span class="hex-swatch" style="background:#54c9ff"></span>#54c9ff</span></td><td><span class="hex-copy" data-hex="#3db8ff"><span class="hex-swatch" style="background:#3db8ff"></span>#3db8ff</span></td><td>Moroziyniy poryv vetra</td></tr>
+        <tr><td>+7</td><td><span class="hex-copy" data-hex="#38beff"><span class="hex-swatch" style="background:#38beff"></span>#38beff</span></td><td><span class="hex-copy" data-hex="#20aaff"><span class="hex-swatch" style="background:#20aaff"></span>#20aaff</span></td><td>Struyashchiysya vozdushniy potok</td></tr>
+        <tr><td>+8</td><td><span class="hex-copy" data-hex="#1cb4ff"><span class="hex-swatch" style="background:#1cb4ff"></span>#1cb4ff</span></td><td><span class="hex-copy" data-hex="#009cff"><span class="hex-swatch" style="background:#009cff"></span>#009cff</span></td><td>Rezhushchiy veter skorosti</td></tr>
+        <tr><td>+9</td><td><span class="hex-copy" data-hex="#00a8ff"><span class="hex-swatch" style="background:#00a8ff"></span>#00a8ff</span></td><td><span class="hex-copy" data-hex="#008ce6"><span class="hex-swatch" style="background:#008ce6"></span>#008ce6</span></td><td>Yarkaya golubaya vspishka manevra</td></tr>
+        <tr><td>+10</td><td><span class="hex-copy" data-hex="#0098ff"><span class="hex-swatch" style="background:#0098ff"></span>#0098ff</span></td><td><span class="hex-copy" data-hex="#0075d0"><span class="hex-swatch" style="background:#0075d0"></span>#0075d0</span></td><td>Skontsentrirovanniy klinok vetra</td></tr>
+        <tr><td>+11</td><td><span class="hex-copy" data-hex="#00b4ff"><span class="hex-swatch" style="background:#00b4ff"></span>#00b4ff</span></td><td><span class="hex-copy" data-hex="#0090ff"><span class="hex-swatch" style="background:#0090ff"></span>#0090ff</span></td><td>Neonoviy biryuzoviy vihry</td></tr>
+        <tr><td>+12</td><td><span class="hex-copy" data-hex="#00e5ff"><span class="hex-swatch" style="background:#00e5ff"></span>#00e5ff</span></td><td><span class="hex-copy" data-hex="#00c0ff"><span class="hex-swatch" style="background:#00c0ff"></span>#00c0ff</span></td><td>Neonovaya struya sverhskorosti</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Tank -->
+  <div class="tab-pane" id="tank">
+    <table class="sharpen-table">
+      <thead>
+        <tr>
+          <th>Level</th>
+          <th>Glow HEX</th>
+          <th>Overlay HEX</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>+1</td><td><span class="hex-copy" data-hex="#e3f2e0"><span class="hex-swatch" style="background:#e3f2e0"></span>#e3f2e0</span></td><td><span class="hex-copy" data-hex="#cbe3c3"><span class="hex-swatch" style="background:#cbe3c3"></span>#cbe3c3</span></td><td>Slabiy ottenok zhivoy zemli</td></tr>
+        <tr><td>+2</td><td><span class="hex-copy" data-hex="#d0e8cb"><span class="hex-swatch" style="background:#d0e8cb"></span>#d0e8cb</span></td><td><span class="hex-copy" data-hex="#b8d7ae"><span class="hex-swatch" style="background:#b8d7ae"></span>#b8d7ae</span></td><td>Myagkoye travyanoye siyaniye</td></tr>
+        <tr><td>+3</td><td><span class="hex-copy" data-hex="#bcdcb7"><span class="hex-swatch" style="background:#bcdcb7"></span>#bcdcb7</span></td><td><span class="hex-copy" data-hex="#a3cc98"><span class="hex-swatch" style="background:#a3cc98"></span>#a3cc98</span></td><td>Spokoynoye zelenoye siyaniye bronii</td></tr>
+        <tr><td>+4</td><td><span class="hex-copy" data-hex="#a8d0a3"><span class="hex-swatch" style="background:#a8d0a3"></span>#a8d0a3</span></td><td><span class="hex-copy" data-hex="#8fc084"><span class="hex-swatch" style="background:#8fc084"></span>#8fc084</span></td><td>Uverennoe kamennoe siyaniye</td></tr>
+        <tr><td>+5</td><td><span class="hex-copy" data-hex="#93c38e"><span class="hex-swatch" style="background:#93c38e"></span>#93c38e</span></td><td><span class="hex-copy" data-hex="#7ab473"><span class="hex-swatch" style="background:#7ab473"></span>#7ab473</span></td><td>Tyazhelyi zelenyi otblesk shchita</td></tr>
+        <tr><td>+6</td><td><span class="hex-copy" data-hex="#7fb77a"><span class="hex-swatch" style="background:#7fb77a"></span>#7fb77a</span></td><td><span class="hex-copy" data-hex="#66a764"><span class="hex-swatch" style="background:#66a764"></span>#66a764</span></td><td>Plotnaya sila starogo lesa</td></tr>
+        <tr><td>+7</td><td><span class="hex-copy" data-hex="#6aa866"><span class="hex-swatch" style="background:#6aa866"></span>#6aa866</span></td><td><span class="hex-copy" data-hex="#539854"><span class="hex-swatch" style="background:#539854"></span>#539854</span></td><td>Zashchitniy kamenny zeleniy ton</td></tr>
+        <tr><td>+8</td><td><span class="hex-copy" data-hex="#569955"><span class="hex-swatch" style="background:#569955"></span>#569955</span></td><td><span class="hex-copy" data-hex="#458646"><span class="hex-swatch" style="background:#458646"></span>#458646</span></td><td>Temnoye yadryo stoikosti</td></tr>
+        <tr><td>+9</td><td><span class="hex-copy" data-hex="#5caf3f"><span class="hex-swatch" style="background:#5caf3f"></span>#5caf3f</span></td><td><span class="hex-copy" data-hex="#4a8f32"><span class="hex-swatch" style="background:#4a8f32"></span>#4a8f32</span></td><td>Zhyostkaya energiya zhivoy bronii</td></tr>
+        <tr><td>+10</td><td><span class="hex-copy" data-hex="#70c337"><span class="hex-swatch" style="background:#70c337"></span>#70c337</span></td><td><span class="hex-copy" data-hex="#5aa52a"><span class="hex-swatch" style="background:#5aa52a"></span>#5aa52a</span></td><td>Yarkaya sila dubovoy kreposti</td></tr>
+        <tr><td>+11</td><td><span class="hex-copy" data-hex="#85d92f"><span class="hex-swatch" style="background:#85d92f"></span>#85d92f</span></td><td><span class="hex-copy" data-hex="#6bc929"><span class="hex-swatch" style="background:#6bc929"></span>#6bc929</span></td><td>Neonoviy ottenok nepr probivaemoy steniy</td></tr>
+        <tr><td>+12</td><td><span class="hex-copy" data-hex="#9bff24"><span class="hex-swatch" style="background:#9bff24"></span>#9bff24</span></td><td><span class="hex-copy" data-hex="#7ce519"><span class="hex-swatch" style="background:#7ce519"></span>#7ce519</span></td><td>Yarko-kislotniy svet nesokrushimogo tanka</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Lekar -->
+  <div class="tab-pane" id="lekar">
+    <table class="sharpen-table">
+      <thead>
+        <tr>
+          <th>Level</th>
+          <th>Glow HEX</th>
+          <th>Overlay HEX</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>+1</td><td><span class="hex-copy" data-hex="#e8fff5"><span class="hex-swatch" style="background:#e8fff5"></span>#e8fff5</span></td><td><span class="hex-copy" data-hex="#d0f5e5"><span class="hex-swatch" style="background:#d0f5e5"></span>#d0f5e5</span></td><td>Tihoe edva zametnoe tselitelnoe siyaniye</td></tr>
+        <tr><td>+2</td><td><span class="hex-copy" data-hex="#ddfff0"><span class="hex-swatch" style="background:#ddfff0"></span>#ddfff0</span></td><td><span class="hex-copy" data-hex="#c2f0de"><span class="hex-swatch" style="background:#c2f0de"></span>#c2f0de</span></td><td>Myagkiy svet lechebnogo vetra</td></tr>
+        <tr><td>+3</td><td><span class="hex-copy" data-hex="#d2ffeb"><span class="hex-swatch" style="background:#d2ffeb"></span>#d2ffeb</span></td><td><span class="hex-copy" data-hex="#b4ead7"><span class="hex-swatch" style="background:#b4ead7"></span>#b4ead7</span></td><td>Nezhnoe myatnoye siyaniye</td></tr>
+        <tr><td>+4</td><td><span class="hex-copy" data-hex="#e8ffe0"><span class="hex-swatch" style="background:#e8ffe0"></span>#e8ffe0</span></td><td><span class="hex-copy" data-hex="#d0f5c4"><span class="hex-swatch" style="background:#d0f5c4"></span>#d0f5c4</span></td><td>Teplyi svet nadezhdy</td></tr>
+        <tr><td>+5</td><td><span class="hex-copy" data-hex="#f5ffe0"><span class="hex-swatch" style="background:#f5ffe0"></span>#f5ffe0</span></td><td><span class="hex-copy" data-hex="#ebf5c4"><span class="hex-swatch" style="background:#ebf5c4"></span>#ebf5c4</span></td><td>Myagkoye zolotistoye istseleniye</td></tr>
+        <tr><td>+6</td><td><span class="hex-copy" data-hex="#fff7cc"><span class="hex-swatch" style="background:#fff7cc"></span>#fff7cc</span></td><td><span class="hex-copy" data-hex="#f0e0a8"><span class="hex-swatch" style="background:#f0e0a8"></span>#f0e0a8</span></td><td>Solnechniy oreol vosstanovleniya</td></tr>
+        <tr><td>+7</td><td><span class="hex-copy" data-hex="#ffefb3"><span class="hex-swatch" style="background:#ffefb3"></span>#ffefb3</span></td><td><span class="hex-copy" data-hex="#e8d28c"><span class="hex-swatch" style="background:#e8d28c"></span>#e8d28c</span></td><td>Teplyi svet blagosloveniya</td></tr>
+        <tr><td>+8</td><td><span class="hex-copy" data-hex="#ffe799"><span class="hex-swatch" style="background:#ffe799"></span>#ffe799</span></td><td><span class="hex-copy" data-hex="#e0c566"><span class="hex-swatch" style="background:#e0c566"></span>#e0c566</span></td><td>Zolotoy luch svyashchennogo sveta</td></tr>
+        <tr><td>+9</td><td><span class="hex-copy" data-hex="#ffdf80"><span class="hex-swatch" style="background:#ffdf80"></span>#ffdf80</span></td><td><span class="hex-copy" data-hex="#d8b84d"><span class="hex-swatch" style="background:#d8b84d"></span>#d8b84d</span></td><td>Yarkiy oreol zhizni</td></tr>
+        <tr><td>+10</td><td><span class="hex-copy" data-hex="#ffd766"><span class="hex-swatch" style="background:#ffd766"></span>#ffd766</span></td><td><span class="hex-copy" data-hex="#cfa933"><span class="hex-swatch" style="background:#cfa933"></span>#cfa933</span></td><td>Plotniy zolotoy svet chudes</td></tr>
+        <tr><td>+11</td><td><span class="hex-copy" data-hex="#ffeb66"><span class="hex-swatch" style="background:#ffeb66"></span>#ffeb66</span></td><td><span class="hex-copy" data-hex="#e0c233"><span class="hex-swatch" style="background:#e0c233"></span>#e0c233</span></td><td>Osliplyayushcheye svyashchennoye siyaniye</td></tr>
+        <tr><td>+12</td><td><span class="hex-copy" data-hex="#ffff80"><span class="hex-swatch" style="background:#ffff80"></span>#ffff80</span></td><td><span class="hex-copy" data-hex="#f0e640"><span class="hex-swatch" style="background:#f0e640"></span>#f0e640</span></td><td>Neonoviy bozhestvenniy svet istseleniya</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Yadovik -->
+  <div class="tab-pane" id="yadovik">
+    <table class="sharpen-table">
+      <thead>
+        <tr>
+          <th>Level</th>
+          <th>Glow HEX</th>
+          <th>Overlay HEX</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>+1</td><td><span class="hex-copy" data-hex="#e6ffe8"><span class="hex-swatch" style="background:#e6ffe8"></span>#e6ffe8</span></td><td><span class="hex-copy" data-hex="#ccf2d1"><span class="hex-swatch" style="background:#ccf2d1"></span>#ccf2d1</span></td><td>Slabiy sled yadovitogo tumana</td></tr>
+        <tr><td>+2</td><td><span class="hex-copy" data-hex="#d6ffd9"><span class="hex-swatch" style="background:#d6ffd9"></span>#d6ffd9</span></td><td><span class="hex-copy" data-hex="#bdf2c2"><span class="hex-swatch" style="background:#bdf2c2"></span>#bdf2c2</span></td><td>Myagkoye otravyayushcheye siyaniye</td></tr>
+        <tr><td>+3</td><td><span class="hex-copy" data-hex="#c8ffc8"><span class="hex-swatch" style="background:#c8ffc8"></span>#c8ffc8</span></td><td><span class="hex-copy" data-hex="#aef2af"><span class="hex-swatch" style="background:#aef2af"></span>#aef2af</span></td><td>Tihiy kislotniy sled</td></tr>
+        <tr><td>+4</td><td><span class="hex-copy" data-hex="#b8ffb8"><span class="hex-swatch" style="background:#b8ffb8"></span>#b8ffb8</span></td><td><span class="hex-copy" data-hex="#99f299"><span class="hex-swatch" style="background:#99f299"></span>#99f299</span></td><td>Yadovityy svet molodoy pleseni</td></tr>
+        <tr><td>+5</td><td><span class="hex-copy" data-hex="#a0ff80"><span class="hex-swatch" style="background:#a0ff80"></span>#a0ff80</span></td><td><span class="hex-copy" data-hex="#80e666"><span class="hex-swatch" style="background:#80e666"></span>#80e666</span></td><td>Zeleniy toksichniy oreol</td></tr>
+        <tr><td>+6</td><td><span class="hex-copy" data-hex="#8cff66"><span class="hex-swatch" style="background:#8cff66"></span>#8cff66</span></td><td><span class="hex-copy" data-hex="#6fe64d"><span class="hex-swatch" style="background:#6fe64d"></span>#6fe64d</span></td><td>Yarkoye kislotnoye siyaniye</td></tr>
+        <tr><td>+7</td><td><span class="hex-copy" data-hex="#78ff4d"><span class="hex-swatch" style="background:#78ff4d"></span>#78ff4d</span></td><td><span class="hex-copy" data-hex="#5ad935"><span class="hex-swatch" style="background:#5ad935"></span>#5ad935</span></td><td>Svet yadovityh spor</td></tr>
+        <tr><td>+8</td><td><span class="hex-copy" data-hex="#64ff3d"><span class="hex-swatch" style="background:#64ff3d"></span>#64ff3d</span></td><td><span class="hex-copy" data-hex="#46c926"><span class="hex-swatch" style="background:#46c926"></span>#46c926</span></td><td>Pulsatsiya smertelnogo toksina</td></tr>
+        <tr><td>+9</td><td><span class="hex-copy" data-hex="#64ff78"><span class="hex-swatch" style="background:#64ff78"></span>#64ff78</span></td><td><span class="hex-copy" data-hex="#37cc64"><span class="hex-swatch" style="background:#37cc64"></span>#37cc64</span></td><td>Yadovito-zeleniy neonoviy svet</td></tr>
+        <tr><td>+10</td><td><span class="hex-copy" data-hex="#80ffb8"><span class="hex-swatch" style="background:#80ffb8"></span>#80ffb8</span></td><td><span class="hex-copy" data-hex="#4fd999"><span class="hex-swatch" style="background:#4fd999"></span>#4fd999</span></td><td>Toksichniy izumrudniy yad</td></tr>
+        <tr><td>+11</td><td><span class="hex-copy" data-hex="#a080ff"><span class="hex-swatch" style="background:#a080ff"></span>#a080ff</span></td><td><span class="hex-copy" data-hex="#8050e6"><span class="hex-swatch" style="background:#8050e6"></span>#8050e6</span></td><td>Fioletoviy yad propitanniy tenyu</td></tr>
+        <tr><td>+12</td><td><span class="hex-copy" data-hex="#c000ff"><span class="hex-swatch" style="background:#c000ff"></span>#c000ff</span></td><td><span class="hex-copy" data-hex="#9000d9"><span class="hex-swatch" style="background:#9000d9"></span>#9000d9</span></td><td>Neonoviy fioletoviy mortmi</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  // Tabs logic
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var tabId = this.getAttribute('data-tab');
+
+      document.querySelectorAll('.tab-btn').forEach(function(b) {
+        b.classList.remove('active');
+      });
+      document.querySelectorAll('.tab-pane').forEach(function(pane) {
+        pane.classList.remove('active');
+      });
+
+      this.classList.add('active');
+      var pane = document.getElementById(tabId);
+      if (pane) pane.classList.add('active');
+    });
+  });
+
+  // Copy HEX on click
+  document.querySelectorAll('.hex-copy').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var hex = this.getAttribute('data-hex');
+      if (!hex) return;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(hex).then(() => {
+          el.classList.add('copied');
+          setTimeout(() => el.classList.remove('copied'), 800);
+        }).catch(() => {
+          // fallback: select text
+          var range = document.createRange();
+          range.selectNodeContents(el);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        });
+      } else {
+        // old browsers fallback
+        var range = document.createRange();
+        range.selectNodeContents(el);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+    });
+  });
+</script>
+</body>
+</html>
